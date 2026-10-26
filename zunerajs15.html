@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .c{
+
+            width: 200px;
+            height: 200px;
+
+
+            background-color: red;
+        }
+    </style>
+
+    <script>
+
+function get(){
+
+    let el = document.getElementById("box1");
+    console.log(el.innerText);
+    
+}
+
+function cl(){
+    let elemewnt = document.getElementById("box1");
+
+    let inp = prompt("enter text");
+    let clr = prompt("enter color");
+
+    elemewnt.innerText= "<u> "+inp+" </u>";
+
+    elemewnt.style.backgroundColor = clr;
+}
+
+
+    </script>
+</head>
+<body onload="get()">
+
+    <button onclick="cl()">get</button>
+    
+    <h1 class="c" id="box1">
+
+        <i>Expert 123</i>
+
+    </h1>
+
+
+</body>
+</html>

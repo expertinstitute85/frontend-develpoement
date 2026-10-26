@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function get() {
+            let element = document.getElementById("box123");
+            // console.log(element.previousElementSibling);
+            // console.log(element.nextElementSibling);
+            // console.log(element.children);
+
+            
+            // attribute - detail to the html tag
+            // attr_name="value"
+            // src=""       id=""       href=""       style="" 
+
+            // setAttribute(attr_name,value); // -> add a attribute
+            element.setAttribute("class","box2");
+            // class="box2"
+
+            element.setAttribute("style","color:white;");
+            // style="color:white"
+
+            // getAttribute(attr_name); // to get a attribute value
+            let v = element.getAttribute("teacher");
+            console.log(v);
+            
+            
+            // removeAttribute(attr_name);  //  to delete a attribute
+            element.removeAttribute("teacher");
+            // teacher=""
+
+        }
+    
+    </script>
+    <style>
+        .box{
+            background-color: red;
+        }
+        
+        .box2{
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="get()">dfsf</button>
+
+    <h1>dsfdsfds</h1>
+
+    <div class="box" id="box123" teacher="saddam">
+        Expe<i>r</i>t
+    </div>
+
+    <p>dsfdsfdsfdsf dsfds</p>
+</body>
+
+</html>

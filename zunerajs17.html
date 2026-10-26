@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        *{
+            margin: 0%;
+        }
+        .light{
+            background-color: rgb(241, 244, 245);
+            color: rgb(0, 0, 3);
+        }
+
+        .dark{
+            background-color: rgb(1, 1, 20);
+            color: rgb(192, 238, 238);
+        }
+
+
+        .light{
+            background-color: rgb(135, 157, 161);
+        }
+    </style>
+
+    <script>
+        function dark(){
+            let el = document.getElementById("x123");
+
+            // el.classList.remove("light");
+            // el.classList.add("dark");
+
+            el.classList.toggle("light");
+
+            // expert.lab1
+            // expert.lab2
+        }
+        
+
+        function BT(){
+            let bt = document.getElementById("abc");
+
+            bt.classList.add("dark");
+        }
+    </script>
+</head>
+<body>
+
+    <button onclick="dark()">go dark</button>
+    
+    <div class="light" id="x123">
+
+        <h1>expert 123</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa, molestiae! Libero architecto ea suscipit obcaecati cupiditate consectetur blanditiis ex, veniam eius sunt vitae facilis illum, molestias praesentium natus earum maxime, minus dolor tempora impedit perspiciatis non veritatis iste voluptatum. Dicta voluptas maiores possimus quasi laborum veritatis animi nisi, nesciunt doloremque?</p>
+    </div>
+
+
+    <button onclick="BT()">ADD TO CARD</button>
+    <div class="light" id="abc">
+        <h3>THIS ITEM IS ADDED IN YOUR CARD</h3>
+    </div>
+
+
+
+</body>
+</html>

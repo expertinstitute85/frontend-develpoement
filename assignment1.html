@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="submitbtn" placeholder="Enter your email">
+
+    <button id="submitbtn">Click me</button>
+
+    <p id="choice"></p>
+    <script>
+     document.getElementById("submitbtn")
+            .addEventListener("click", function(){
+                let emailinput=document.getElementById("submitbtn");
+                if(emailInput.value==""){
+                    alert("eMAIL IS REQUIRED!");
+                }
+                else{
+                    alert("thank you for submitting!")
+                }
+
+
+            });
+            
+    </script>
+</body>
+</html>

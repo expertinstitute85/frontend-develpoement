@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const output = document.getElementById('output')
+
+        let num1 = 0
+        let num2 = 0
+        
+        let opr = 'sub'
+        
+        function one() {
+            let x = document.getElementById("output")
+            x.innerText += "1"
+        }
+        function two() {
+            let y = document.getElementById("output")
+            y.innerText += "2"
+        }
+        function three() {
+            let y = document.getElementById("output")
+            y.innerText += "2"
+        }
+        function four() {
+            let y = document.getElementById("output")
+            y.innerText += "2"
+        }
+        function five() {
+            let y = document.getElementById("output")
+            y.innerText += "2"
+        }
+        function six() {
+            let y = document.getElementById("output")
+            y.innerText += "2"
+        }
+        function seven() {
+            let y = document.getElementById("output")
+            y.innerText += "2"
+        }
+        function eight() {
+            let y = document.getElementById("output")
+            y.innerText += "2"
+        }
+        function nine() {
+            let y = document.getElementById("output")
+            y.innerText += "2"
+        }
+        function zero() {
+            let y = document.getElementById("output")
+            y.innerText += ""
+        }
+
+
+        function plus() {
+            num1 = document.getElementById("output").innerText;
+
+            console.log(num1);
+
+
+            opr = 'add'
+
+            document.getElementById("output").innerText = ''
+        }
+        function minus() {
+            num1 = document.getElementById("output").innerText;
+
+            console.log(num1);
+
+
+            or = 'minus'
+
+            document.getElementById("output").innerText = ''
+        }
+        function multi() {
+            num1 = document.getElementById("output").innerText;
+
+            console.log(num1);
+
+
+            opr = 'minus'
+
+            document.getElementById("output").innerText = ''
+        }
+        function divide() {
+            num1 = document.getElementById("output").innerText;
+
+            console.log(num1);
+
+
+            opr = 'divide'
+
+            document.getElementById("output").innerText = ''
+        }
+
+
+        function slove() {
+            num1 = parseInt(num1)
+            num2 = parseInt(document.getElementById("output").innerText)
+
+            console.log(num2);
+
+            let res = 0
+
+            if (opr == "add") {
+                res = num1 + num2
+            }
+
+            document.getElementById("output").innerText = res;
+
+
+        }
+        function slove() {
+            num1 = parseInt(num1)
+            num2 = parseInt(document.getElementById("output").innerText)
+
+            console.log(num2);
+
+            let res = 0
+
+            if (or == "sub") {
+                res = num1 - num2
+            }
+
+            document.getElementById("output").innerText = res;
+
+
+        }
+        function slove() {
+            num1 = parseInt(num1)
+            num2 = parseInt(document.getElementById("output").innerText)
+
+            console.log(num2);
+
+            let res = 0
+
+            if (pr == "multi") {
+                res = num1 * num2
+            }
+
+            document.getElementById("output").innerText = res;
+
+
+        }
+        function slove() {
+            num1 = parseInt(num1)
+            num2 = parseInt(document.getElementById("output").innerText)
+
+            console.log(num2);
+
+            let res = 0
+
+            if (rp == "divide") {
+                res = num1 / num2
+            }
+
+            document.getElementById("output").innerText = res;
+
+
+        }
+    </script>
+    <div class="bg-black w-screen h-screen flex justify-center items-center">
+        <div class="w-105 h-140 bg-red-100 flex flex-col ">
+            <input type="number" class="screen  w-105 h-30 bg-violet-100" id="output ">
+            <div class="w-105 h-30  flex justify-center items-center gap-x-3 ">
+                <button class="w-20 h-15 bg-amber-50 " onclick="seven()">7</button>
+                <button class="w-20 h-15 bg-amber-50" onclick="eight()">8</button>
+                <button class="w-20 h-15 bg-amber-50" onclick="nine()">9</button>
+                <button class="w-20 h-15 bg-amber-50" onclick="plus()">+</button>
+
+            </div>
+            <div class="w-105 h-30  flex justify-center items-center gap-x-3">
+                <button class="w-20 h-15 bg-amber-50" onclick="four()">4</button>
+                <button class="w-20 h-15 bg-amber-50" onclick="five()">5</button>
+                <button class="w-20 h-15 bg-amber-50" onclick="six()">6</button>
+                <button class="w-20 h-15 bg-amber-50" onclick="multiply()">x</button>
+            </div>
+            <div class="w-105 h-30  flex justify-center items-center gap-x-3">
+                <button class="w-20 h-15 bg-amber-50" onclick="one()">1</button>
+                <button class="w-20 h-15 bg-amber-50" onclick="two()">2</button>
+                <button class="w-20 h-15 bg-amber-50" onclick="three()">3</button>
+                <button class="w-20 h-15 bg-amber-50" onclick="minus()">-</button>
+            </div>
+            <div class="w-105 h-30  flex justify-center items-center gap-x-3">
+                <button class="w-20 h-15 bg-amber-50" onclick="dot()">.</button>
+                <button class="w-20 h-15 bg-amber-50" onclick="szero()">0</button>
+                <button class="w-20 h-15 bg-amber-50" onclick="equal()">=</button>
+                <button class="w-20 h-15 bg-amber-50" onclick="divide()">+</button>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
