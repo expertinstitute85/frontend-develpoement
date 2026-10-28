@@ -1,24 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Modern Responsive Webpage</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Universal Base Reset & Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+:root {
+    --bg-primary: #ffffff;
+    --text-primary: #2d3748;
+    --accent: #4f46e5;
+    --accent-hover: #4338ca;
+    --card-bg: #f7fafc;
+    --navbar-bg: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #0f172a;
+    --text-primary: #f8fafc;
+    --accent: #6366f1;
+    --accent-hover: #4f46e5;
+    --card-bg: #1e293b;
+    --navbar-bg: rgba(15, 23, 42, 0.95);
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* Navigation Layout */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 10%;
+    background-color: var(--navbar-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Button Mechanics */
+button {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-toggle {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: white;
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn-secondary {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+/* Content Sections */
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+    margin-top: 60px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    opacity: 0.8;
+}
+
+.interactive-section {
+    padding: 5rem 10%;
+    text-align: center;
+    background-color: var(--card-bg);
+}
+
+.counter-container {
+    margin-top: 2rem;
+}
+
+.counter-display {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin: 1rem 0;
+}
+
+/* Responsive UI Components (Mobile Menu) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-primary);
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--bg-primary);
+        padding: 2rem;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.25rem;
+    }
+}
+    </style>
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    // 1. Dark/Light Theme Switching Engine
+    const themeToggle = document.getElementById('themeToggle');
+    
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+
+    // Persistent Theme Memory Check
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    // 2. Mobile Responsive Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when link layout triggers
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // 3. Counter Logic
+    const incrementBtn = document.getElementById('incrementBtn');
+    const counterDisplay = document.getElementById('counterDisplay');
+    let count = 0;
+
+    incrementBtn.addEventListener('click', () => {
+        count++;
+        counterDisplay.textContent = count;
         
+        // Add subtle animation feedback
+        counterDisplay.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+            counterDisplay.style.transform = 'scale(1)';
+        }, 100);
+    });
+});
     </script>
-
 </head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">Web<span>Craft</span></div>
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="nav-buttons">
+            <button id="themeToggle" class="btn-toggle">🌓 Mode</button>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
 
-<body class="w-100 h-100 bg-blue-200 none" id="colors">
-    <!-- <option ></option> -->
-    <select name="Color" id="Color">Color
-        <option value="pink" >pink</option>
-        <option value="orange"></option>>orange</option>
-        <option value="red"></option>>red</option>
-    </select>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>Build Your Digital Future</h1>
+            <p>We create fast, beautiful, and highly responsive web experiences engineered for success.</p>
+            <button id="ctaButton" class="btn-primary">Explore Features</button>
+        </div>
+    </section>
+
+    <!-- Interactive Counter Section -->
+    <section id="services" class="interactive-section">
+        <h2>Interactive Performance</h2>
+        <div class="counter-container">
+            <p>Click the button below to see JavaScript execution tracking in real-time.</p>
+            <div class="counter-display" id="counterDisplay">0</div>
+            <button id="incrementBtn" class="btn-secondary">Click Me!</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
 </body>
-
 </html>
